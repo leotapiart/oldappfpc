@@ -1,10 +1,10 @@
-import Buscador from "./components/Buscador";
+import ProductsView from "./components/ProductsView";
 
 function App() {
   return (
     <div className="min-vh-100 bg-dark text-light">
       <div className="container py-5">
-        <Buscador />
+        <ProductsView />
       </div>
     </div>
   );

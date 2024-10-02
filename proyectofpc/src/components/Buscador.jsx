@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import FormVencimiento from "../components/FormVencimiento.jsx";
 import { csv } from "d3-fetch";
 
 const Buscador = () => {
@@ -28,7 +29,7 @@ const Buscador = () => {
   // Filtrar datos según el término de búsqueda
   const filteredData = data
     .filter((item) =>
-      item.articulo.toLowerCase().includes(searchSku.toLowerCase())
+      item.articulo.toLowerCase().includes(searchSku.toLowerCase()),
     )
     .slice(0, 10); // Limitar a 10 resultados.
 
@@ -41,6 +42,8 @@ const Buscador = () => {
 
   return (
     <section className="text-dark ">
+      <FormVencimiento />
+
       {/* Input de búsqueda */}
       <div className="input-group mb-3 mt-5">
         <input
@@ -77,7 +80,9 @@ const Buscador = () => {
 
       {/* Si no hay resultados */}
       {searchSku && filteredData.length === 0 && (
-        <p>No se encontraron resultados para el SKU "{searchSku}"</p>
+        <p className="text-light">
+          No se encontraron resultados para el SKU "{searchSku}"
+        </p>
       )}
 
       {/* Mostrar detalles del producto seleccionado */}
@@ -132,7 +137,7 @@ const Buscador = () => {
                 <td>
                   <strong>% Aceptación</strong>
                 </td>
-                <td>{selectedItem.aceptBodegaPorcentaje} %</td>
+                <td>{selectedItem.aceptBodegaPorcentaje}</td>
               </tr>
               <tr>
                 <td>
